@@ -1,3 +1,5 @@
+/*
+
 package com.company;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -122,7 +124,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         State myState = State.NOTFINISHED;
 
         Scanner scanner = new Scanner(System.in);
@@ -140,36 +142,6 @@ public class Main {
         System.out.printf("| %c %c %c |\n",charArray[2][0],charArray[2][1],charArray[2][2]);
         System.out.println("---------");
 
-        System.out.println("Enter the coordinates");
-        int coordX = scanner.nextInt();
-        int coordY = scanner.nextInt();
-        if (coordX == 1 & coordY==1 )
-            charArray[2][0] = 'X';
-        else if (coordX == 2 & coordY==1 )
-            charArray[2][1] = 'X';
-        else if (coordX == 3 & coordY==1 )
-            charArray[2][2] = 'X';
-        else if (coordX == 1 & coordY==2 )
-            charArray[1][0] = 'X';
-        else if (coordX == 2 & coordY==2 )
-            charArray[1][1] = 'X';
-        else if (coordX == 3 & coordY==2 )
-            charArray[1][2] = 'X';
-        else if (coordX == 1 & coordY==3 )
-            charArray[0][0] = 'X';
-        else if (coordX == 2 & coordY==2 )
-            charArray[0][1] = 'X';
-        else if (coordX == 3 & coordY==3 )
-            charArray[0][2] = 'X';
-
-        System.out.println("---------");
-        System.out.printf("| %c %c %c |\n",charArray[0][0],charArray[0][1],charArray[0][2]);
-        System.out.printf("| %c %c %c |\n",charArray[1][0],charArray[1][1],charArray[1][2]);
-        System.out.printf("| %c %c %c |\n",charArray[2][0],charArray[2][1],charArray[2][2]);
-        System.out.println("---------");
-
-
-        /*
         if(checkImposibleState(charArray))
         {
             System.out.println("Impossible");
@@ -195,8 +167,6 @@ public class Main {
             myState = State.DRAW;
             return;
         }
-
-        */
-
     }
 }
+*/

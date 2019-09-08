@@ -1,3 +1,7 @@
+
+
+/*
+
 package com.company;
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -122,7 +126,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         State myState = State.NOTFINISHED;
 
         Scanner scanner = new Scanner(System.in);
@@ -169,34 +173,9 @@ public class Main {
         System.out.println("---------");
 
 
-        /*
-        if(checkImposibleState(charArray))
-        {
-            System.out.println("Impossible");
-            myState = State.IMPOSSIBLE;
-            return;
-        }else if(checkWins(charArray,'X'))
-        {
-            System.out.println("X wins");
-            myState = State.XWINS;
-            return;
-        }else if(checkWins(charArray,'O'))
-        {
-            System.out.println("O wins");
-            myState = State.OWINS;
-            return;
-        }else if(checkGameNotFinishedState(charArray)) {
-            System.out.println("Game not finished");
-            myState = State.NOTFINISHED;
-            return;
-        }else if(checkDrawState(charArray))
-        {
-            System.out.println("Draw");
-            myState = State.DRAW;
-            return;
-        }
 
-        */
 
     }
 }
+
+*/
