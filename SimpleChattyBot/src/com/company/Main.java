@@ -66,7 +66,31 @@ public class Main {
                 System.out.printf("%d!\n",i);
             }
 
-            System.out.println("Completed, have a nice day!");
+            //System.out.println("Completed, have a nice day!");
+        }
+        public void test(Scanner myScanner)
+        {
+            System.out.println("Let's test your programming knowledge.");
+            System.out.println("Why do we use methods?\n" +
+                    "1. To repeat a statement multiple times.\n" +
+                    "2. To decompose a program into several small subroutines.\n" +
+                    "3. To determine the execution time of a program.\n" +
+                    "4. To interrupt the execution of a program.");
+            System.out.print("> ");
+            int temp = 0;
+            do {
+                //System.out.print("> ");
+                temp = myScanner.nextInt();
+                if (temp != 2)
+                    System.out.println("Please, try again.");
+
+            }while (!(temp == 2));
+
+        }
+
+        public void end()
+        {
+            System.out.println("Congratulations, have a nice day!");
         }
 
     }
@@ -81,6 +105,8 @@ public class Main {
         myChattyBot.readName(scanner);
         myChattyBot.guessAge(scanner);
         myChattyBot.count(scanner);
+        myChattyBot.test(scanner);
+        myChattyBot.end();
 
     }
 }
