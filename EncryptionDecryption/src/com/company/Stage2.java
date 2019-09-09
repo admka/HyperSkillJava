@@ -1,3 +1,4 @@
+/*
 package com.company;
 
 import java.util.Scanner;
@@ -9,8 +10,8 @@ public class Main {
             int aux = input;
 
             if((input!= ' ') & ((aux >=(int) 'a') & (aux <=(int) 'z') )) {
-               //aux = 'a' + ('z' - input);  26
-               aux = 'a' + (aux - 97 + key)%26;
+                //aux = 'a' + ('z' - input);  26
+                aux = 'a' + (aux - 97 + key)%26;
             }
 
             return (char)aux ;
@@ -28,20 +29,20 @@ public class Main {
 
             for (int i = 0; i<input.length;i++)
             {
-                    output[i] = EncryptChar(input[i],key);
+                output[i] = EncryptChar(input[i],key);
 
             }
 
         }
         public static void DencryptCharArray(char[] input,
-                                            char[] output){
+                                             char[] output){
 
 
         }
     }
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
         Scanner scanner = new Scanner(System.in);
         EncryptionDecryption myEncDec = new EncryptionDecryption();
         //char [] charArray = "welcome to hyperskill".toCharArray();
@@ -59,3 +60,4 @@ public class Main {
 
     }
 }
+*/
