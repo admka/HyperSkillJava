@@ -76,6 +76,7 @@ public class Main {
                 checkWinsStateVertical(charArray,ControlCharacter) |
                 checkWinsStateDiagonal(charArray,ControlCharacter);
     }
+
     public static boolean checkImposibleState(char[][] charArray)
     {
         int i = countOccurrence(charArray,'X') - countOccurrence(charArray,'O');
@@ -111,6 +112,72 @@ public class Main {
         return false;
     }
 
+    public static void printGame(char[][] charArray)
+    {
+        System.out.println("---------");
+        System.out.printf("| %c %c %c |\n",charArray[0][0],charArray[0][1],charArray[0][2]);
+        System.out.printf("| %c %c %c |\n",charArray[1][0],charArray[1][1],charArray[1][2]);
+        System.out.printf("| %c %c %c |\n",charArray[2][0],charArray[2][1],charArray[2][2]);
+        System.out.println("---------");
+    }
+
+    public static boolean tryFill(char charArray[][],int coordX, int coordY) {
+
+        boolean temp = true;
+        if (coordX == 1 & coordY == 1) {
+            if (charArray[2][0] != ' ')
+                temp = false;
+            else
+                charArray[2][0] = 'X';
+        } else if (coordX == 2 & coordY == 1){
+            if (charArray[2][1] != ' ')
+                temp = false;
+            else
+                charArray[2][1] = 'X';
+        }else if (coordX == 3 & coordY==1 ) {
+            if (charArray[2][2] != ' ')
+                temp = false;
+            else
+                charArray[2][2] = 'X';
+        }else if (coordX == 1 & coordY==2 ) {
+            if (charArray[1][0] != ' ')
+                temp =  false;
+            else
+                charArray[1][0] = 'X';
+        }else if (coordX == 2 & coordY==2 ) {
+            if (charArray[1][1] != ' ')
+                temp =  false;
+            else
+                charArray[1][1] = 'X';
+        }else if (coordX == 3 & coordY==2 ){
+            if (charArray[1][2] != ' ')
+                temp = false;
+            else
+                charArray[1][2] = 'X';
+        }else if (coordX == 1 & coordY==3 ) {
+            if (charArray[0][0] != ' ')
+                temp = false;
+            else
+                charArray[0][0] = 'X';
+        }else if (coordX == 2 & coordY==2 ) {
+            if (charArray[0][1] != ' ')
+                temp = false;
+            else
+                charArray[0][1] = 'X';
+        }else if (coordX == 3 & coordY==3 ){
+            if (charArray[0][2] != ' ')
+                temp = false;
+            else
+                charArray[0][2] = 'X';
+        }
+        if(!temp)
+            System.out.println("This cell is occupied! Choose another one!");
+        return temp;
+
+    }
+
+
+
     //Enum is not implemented completely but might be beneficial for next steps
     public enum State
     {
@@ -134,42 +201,61 @@ public class Main {
         charArray[1] = Arrays.copyOfRange(inputString.toCharArray(),4,7);
         charArray[2] = Arrays.copyOfRange(inputString.toCharArray(),7,10);
 
-        System.out.println("---------");
-        System.out.printf("| %c %c %c |\n",charArray[0][0],charArray[0][1],charArray[0][2]);
-        System.out.printf("| %c %c %c |\n",charArray[1][0],charArray[1][1],charArray[1][2]);
-        System.out.printf("| %c %c %c |\n",charArray[2][0],charArray[2][1],charArray[2][2]);
-        System.out.println("---------");
-
-        System.out.println("Enter the coordinates");
-        int coordX = scanner.nextInt();
-        int coordY = scanner.nextInt();
-        if (coordX == 1 & coordY==1 )
-            charArray[2][0] = 'X';
-        else if (coordX == 2 & coordY==1 )
-            charArray[2][1] = 'X';
-        else if (coordX == 3 & coordY==1 )
-            charArray[2][2] = 'X';
-        else if (coordX == 1 & coordY==2 )
-            charArray[1][0] = 'X';
-        else if (coordX == 2 & coordY==2 )
-            charArray[1][1] = 'X';
-        else if (coordX == 3 & coordY==2 )
-            charArray[1][2] = 'X';
-        else if (coordX == 1 & coordY==3 )
-            charArray[0][0] = 'X';
-        else if (coordX == 2 & coordY==2 )
-            charArray[0][1] = 'X';
-        else if (coordX == 3 & coordY==3 )
-            charArray[0][2] = 'X';
-
-        System.out.println("---------");
-        System.out.printf("| %c %c %c |\n",charArray[0][0],charArray[0][1],charArray[0][2]);
-        System.out.printf("| %c %c %c |\n",charArray[1][0],charArray[1][1],charArray[1][2]);
-        System.out.printf("| %c %c %c |\n",charArray[2][0],charArray[2][1],charArray[2][2]);
-        System.out.println("---------");
+        printGame(charArray);
 
 
-        /*
+        System.out.print("Enter the coordinates: ");
+        int coordX = 0;
+        int coordY = 0;
+        boolean valueInLimits = true;
+        boolean validNumers = true;
+
+        do {
+            do {
+                valueInLimits = true;
+                validNumers = false;
+                int temp = 0;
+                System.out.println("step 0");
+
+                 while (!scanner.hasNextInt())
+                 {
+                     System.out.println("You should enter numbers!");
+                     System.out.print("Enter the coordinates: ");
+                     System.out.println("step 1");
+                     scanner.nextLine();
+                     System.out.println("step 2");
+                 }
+                 System.out.println("step 3");
+                 coordX = scanner.nextInt();
+                 System.out.println("step 4");
+                 System.out.println("step 7");
+                 System.out.println("step 8");
+
+                if(scanner.hasNextInt())
+                {
+                    coordY = scanner.nextInt();
+                    validNumers = true;
+                }else{
+                    scanner.nextLine();
+                    System.out.println("You should enter numbers!");
+                    System.out.print("Enter the coordinates: ");
+                }
+
+            }while (!validNumers);
+
+            if((coordY<1 | coordY > 3) | (coordX < 1 | coordX > 3) )
+                valueInLimits = false;
+
+            if (!valueInLimits) {
+                System.out.println("Coordinates should be from 1 to 3!");
+                System.out.print("Enter the coordinates: ");
+            }
+        }while((!valueInLimits) | (!tryFill(charArray,coordX,coordY)));
+
+        printGame(charArray);
+
+
+
         if(checkImposibleState(charArray))
         {
             System.out.println("Impossible");
@@ -196,7 +282,7 @@ public class Main {
             return;
         }
 
-        */
+
 
     }
 }
