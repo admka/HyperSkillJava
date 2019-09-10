@@ -1,3 +1,4 @@
+/*
 package com.company;
 
 import java.util.Scanner;
@@ -9,7 +10,7 @@ public class Main {
             //maybe tyr catch for overflow
             //int aux = input;
             //aux = 'a' + ('z' - input);  26
-               //aux = 'a' + (aux - 97 + key)%26;
+            //aux = 'a' + (aux - 97 + key)%26;
             int aux = input + key;
             return (char)aux ;
 
@@ -31,13 +32,13 @@ public class Main {
 
             for (int i = 0; i<input.length;i++)
             {
-                    output[i] = EncryptChar(input[i],key);
+                output[i] = EncryptChar(input[i],key);
 
             }
 
         }
         public static void DencryptCharArray(char[] input,
-                                            char[] output,
+                                             char[] output,
                                              int key){
             for (int i = 0; i<input.length;i++)
             {
@@ -59,12 +60,21 @@ public class Main {
         }
     }
 
+    public static void method(int[] array) {
 
+        array[0] = 44;
+        //array = new int[] { 1, 2, 3 };
+    }
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-
+        //String[] argss = {"-mode", "enc", "-key", "5", "-data", "\"Welcome", "to", "hyperskill!\""};
+        //String[] argss = {"-mode", "enc", "-key", "5", "-data", "\"Welcome to hyperskill!\""};
+        String[] argss = {"-key", "5", "-data", "\"\\jqhtrj%yt%m~ujwxpnqq&\"", "-mode", "dec"};
+        for (String s:argss) {
+            System.out.println(s);
+        }
         String mode = "enc";
         int modeIndex = -1;
         int key = 0;
@@ -73,44 +83,44 @@ public class Main {
         int dataIndex = -1;
 
 
-        for (int i=0; i<args.length;i++){
-            if(args[i].contentEquals("-mode")) {
-                mode = args[i + 1].toString();
+        for (int i=0; i<argss.length;i++){
+            if(argss[i].contentEquals("-mode")) {
+                mode = argss[i + 1].toString();
                 modeIndex = i;
-            }else if(args[i].contentEquals("-key")) {
-                key = Integer.parseInt(args[i + 1]);
+            }else if(argss[i].contentEquals("-key")) {
+                key = Integer.parseInt(argss[i + 1]);
                 keyIndex = i;
-            }else if(args[i].contentEquals("-data")) {
+            }else if(argss[i].contentEquals("-data")) {
                 dataIndex = i;
             }
         }
         if(dataIndex > -1){
-            for (int i = dataIndex+1; (i<args.length)
+            for (int i = dataIndex+1; (i<argss.length)
                     &&(i!=modeIndex)
                     &&(i!=keyIndex);i++){
-                data += args[i].toString();
+                data += argss[i].toString();
                 data += " ";
             }
         }
 
         if (data.isEmpty()) {
-            args = scanner.nextLine().split(" ");
-            for (int i=0; i<args.length;i++){
-                if(args[i].contentEquals("-mode")) {
-                    mode = args[i + 1].toString();
+            argss = scanner.nextLine().split(" ");
+            for (int i=0; i<argss.length;i++){
+                if(argss[i].contentEquals("-mode")) {
+                    mode = argss[i + 1].toString();
                     modeIndex = i;
-                }else if(args[i].contentEquals("-key")) {
-                    key = Integer.parseInt(args[i + 1]);
+                }else if(argss[i].contentEquals("-key")) {
+                    key = Integer.parseInt(argss[i + 1]);
                     keyIndex = i;
-                }else if(args[i].contentEquals("-data")) {
+                }else if(argss[i].contentEquals("-data")) {
                     dataIndex = i;
                 }
             }
             if(dataIndex > -1){
-                for (int i = dataIndex+1; (i<args.length)
+                for (int i = dataIndex+1; (i<argss.length)
                         &&(i!=modeIndex)
                         &&(i!=keyIndex);i++){
-                    data += args[i].toString();
+                    data += argss[i].toString();
                     data += " ";
                 }
             }
@@ -118,7 +128,7 @@ public class Main {
 
         System.out.println(data);
         System.out.println(data.length());
-        data = data.substring(0,data.length()-1);
+        data = data.substring(1,data.length()-2);
         System.out.println(data);
         System.out.println(data.length());
 
@@ -132,3 +142,4 @@ public class Main {
 
     }
 }
+*/
