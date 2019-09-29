@@ -1,4 +1,5 @@
-package com.company;
+/*
+package encryptdecrypt;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
@@ -146,18 +147,7 @@ class EncDecOperator extends EncDecFactory{
 public class Main {
     public static void main(String[] args) {
 
-
-
-
-        String fileLocation =
-                "C:\\Users\\adem\\IdeaProjects\\EncryptionDecryption\\src\\com\\company\\test.txt";
-        String fileLocation2 =
-                "C:\\Users\\adem\\IdeaProjects\\EncryptionDecryption\\src\\com\\company\\test2.txt";
-
         Scanner scanner = new Scanner(System.in);
-        //String[] argss = {"-mode", "enc", "-key", "5", "-data", "\"Welcome", "to", "hyperskill!\""};
-        String[] argss = {"-mode", "dec", "-key", "5", "-alg", "shift",
-                "-in", fileLocation.toString(), "-out", fileLocation2.toString()};
 
         String alg = "shift";
         int algIndex = -1;
@@ -173,35 +163,35 @@ public class Main {
         int outputFileNameAndLocationIndex = -1;
 
         //check error case for each key and value pairs
-try {
-    for (int i = 0; i < argss.length; i++) {
-        if (argss[i].contentEquals("-mode")) {
-            mode = argss[i + 1].toString();
-            modeIndex = i;
-            if (!mode.contentEquals("enc")
-                    & !mode.contentEquals("dec")) {
-                throw new Exception("Error no enc or dec keyword");
+        try {
+            for (int i = 0; i < args.length; i++) {
+                if (args[i].contentEquals("-mode")) {
+                    mode = args[i + 1].toString();
+                    modeIndex = i;
+                    if (!mode.contentEquals("enc")
+                            & !mode.contentEquals("dec")) {
+                        throw new Exception("Error no enc or dec keyword");
+                    }
+                } else if (args[i].contentEquals("-key")) {
+                    key = Integer.parseInt(args[i + 1]);
+                    keyIndex = i;
+                } else if (args[i].contentEquals("-data")) {
+                    dataIndex = i;
+                } else if (args[i].contentEquals("-in")) {
+                    inputFileNameAndLocationIndex = i;
+                    inputFileNameAndLocation = args[i + 1].toString();
+                } else if (args[i].contentEquals("-out")) {
+                    outputFileNameAndLocationIndex = i;
+                    outputFileNameAndLocation = args[i + 1].toString();
+                }else if (args[i].contentEquals("-alg")) {
+                    algIndex = i;
+                    alg = args[i + 1].toString();
+                }
             }
-        } else if (argss[i].contentEquals("-key")) {
-            key = Integer.parseInt(argss[i + 1]);
-            keyIndex = i;
-        } else if (argss[i].contentEquals("-data")) {
-            dataIndex = i;
-        } else if (argss[i].contentEquals("-in")) {
-            inputFileNameAndLocationIndex = i;
-            inputFileNameAndLocation = argss[i + 1].toString();
-        } else if (argss[i].contentEquals("-out")) {
-            outputFileNameAndLocationIndex = i;
-            outputFileNameAndLocation = argss[i + 1].toString();
-        }else if (argss[i].contentEquals("-alg")) {
-            algIndex = i;
-            alg = argss[i + 1].toString();
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return;
         }
-    }
-}catch (Exception e){
-    System.out.println(e.getMessage());
-    return;
-}
 
         EncDecOperator encDecOp = new EncDecOperator();
         EncDec encoderOrDecoder = encDecOp.getEncDec(alg);
@@ -210,13 +200,13 @@ try {
         // if data is provided in input string get data
         try {
             if (dataIndex > -1) {
-                for (int i = dataIndex + 1; (i < argss.length)
+                for (int i = dataIndex + 1; (i < args.length)
                         && (i != modeIndex)
                         && (i != keyIndex)
                         && (i != inputFileNameAndLocationIndex)
                         && (i != outputFileNameAndLocationIndex)
                         && (i != algIndex); i++) {
-                    data += argss[i].toString();
+                    data += args[i].toString();
                     data += " ";
                 }
                 data = data.trim();
@@ -229,39 +219,6 @@ try {
             return;
         }
 
-
-/*
-        if (data.isEmpty()) {
-            args = scanner.nextLine().split(" ");
-            for (int i=0; i<args.length;i++){
-                if(args[i].contentEquals("-mode")) {
-                    mode = args[i + 1].toString();
-                    modeIndex = i;
-                }else if(args[i].contentEquals("-key")) {
-                    key = Integer.parseInt(args[i + 1]);
-                    keyIndex = i;
-                }else if(args[i].contentEquals("-data")) {
-                    dataIndex = i;
-                }
-            }
-            if(dataIndex > -1){
-                for (int i = dataIndex+1; (i<args.length)
-                        &&(i!=modeIndex)
-                        &&(i!=keyIndex);i++){
-                    data += args[i].toString();
-                    data += " ";
-                }
-            }
-        }
-*/
-
-        System.out.println(data);
-        System.out.println(data.length());
-
-
-        System.out.println(mode);
-        System.out.println(key);
-        System.out.println(data);
         char[] outputArray = new char[data.length()];
         encoderOrDecoder.operationEncOrDenc(mode,data.toCharArray(),outputArray,key);
         try {
@@ -276,6 +233,6 @@ try {
         }catch (Exception e){
             System.out.println("Error " + e.getMessage());
         }
-
     }
 }
+*/
